@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 2005260189986697000}
   - component: {fileID: 4305038644726384448}
   - component: {fileID: 6738734306317162925}
+  - component: {fileID: 8394687093573878190}
+  - component: {fileID: 4273284709790877826}
+  - component: {fileID: 1875989936674628622}
   - component: {fileID: 5998781587026554532}
   m_Layer: 0
   m_Name: Player
@@ -28,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1383253555999994256}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.64, y: 0.38, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -109,7 +112,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -121,6 +124,47 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8394687093573878190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383253555999994256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1939ebc34b83d2b4bb60767ef673fac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRotation
+--- !u!114 &4273284709790877826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383253555999994256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2863d98e40afae245bfb54cc1f629d66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::playermovement
+  rb: {fileID: 6738734306317162925}
+--- !u!114 &1875989936674628622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383253555999994256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96e60230bafaf6043b1b9e5378e2cc61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::bulletSpawn
+  bullet: {fileID: 957720189664156928, guid: c8c4825e549642f4d8319a748ed9f66d, type: 3}
+  player: {fileID: 1383253555999994256}
+  firePoint: {fileID: 0}
+  bulletSpeed: 25
 --- !u!61 &5998781587026554532
 BoxCollider2D:
   m_ObjectHideFlags: 0

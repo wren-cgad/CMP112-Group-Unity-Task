@@ -18,6 +18,14 @@ public class PlayerRotation : MonoBehaviour
         {
             targetAngle += SPEED * Time.fixedDeltaTime;
         }
+        if (Input.GetKey(KeyCode.D))
+        {
+            targetAngle -= SPEED * Time.fixedDeltaTime;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            targetAngle += SPEED * Time.fixedDeltaTime;
+        }
 
         // smoothly interpolate currentAngle toward targetAngle
         currentAngle = Mathf.Lerp(currentAngle, targetAngle, LERP_FACTOR * Time.fixedDeltaTime);
