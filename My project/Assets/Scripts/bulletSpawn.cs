@@ -1,29 +1,19 @@
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class bulletSpawn : MonoBehaviour
 {
-    public GameObject bullet;
-    
+    public GameObject bullet;      // assign the PREFAB in the Inspector
     public GameObject player;
     public Transform firePoint;
-    public int bulletSpeed = 25;
+    public float bulletSpeed = 25f;
 
-  
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            bullet = Instantiate( bullet, firePoint.position, player.transform.rotation);
-            bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bulletSpeed, ForceMode2D.Impulse);
+            GameObject newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
+            Rigidbody2D rb = newBullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(firePoint.up * bulletSpeed, ForceMode2D.Impulse);
         }
     }
 }
