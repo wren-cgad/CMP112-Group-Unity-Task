@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemyPrefabs;
-
+    private float waitTime = 2f;
     void Start()
     {
         // Start the loop once when the game begins
@@ -15,7 +15,7 @@ public class EnemyManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(waitTime);
             SpawnEnemy();
         }
     }

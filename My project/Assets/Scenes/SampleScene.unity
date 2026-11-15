@@ -610,7 +610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -966, y: 636}
+  m_AnchoredPosition: {x: -934, y: 636}
   m_SizeDelta: {x: 553.0482, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &847955372
@@ -738,13 +738,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1875989936674628622, guid: 2f63be8aca144ef4c91b4898a575dee5, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1595192133}
     - target: {fileID: 2005260189986697000, guid: 2f63be8aca144ef4c91b4898a575dee5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.07
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2005260189986697000, guid: 2f63be8aca144ef4c91b4898a575dee5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2005260189986697000, guid: 2f63be8aca144ef4c91b4898a575dee5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -951,6 +955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthManager
   maxHealth: 100
   healthBarFill: {fileID: 1081235064}
+  smoothSpeed: 5
 --- !u!1 &1665103081
 GameObject:
   m_ObjectHideFlags: 0

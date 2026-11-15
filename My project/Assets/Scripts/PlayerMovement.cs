@@ -13,6 +13,7 @@ public class playermovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.freezeRotation = true;
         lineRenderer = GetComponent<LineRenderer>();
 
         lineRenderer.useWorldSpace = true;
@@ -50,13 +51,6 @@ public class playermovement : MonoBehaviour
         }
     }
 
-    void LateUpdate()
-    {
-        if (transform.parent == null) return;
-
-        DrawCircle();
-    }
-
     void DrawCircle()
     {
         // use the current distance from the parent as the radius
@@ -73,5 +67,19 @@ public class playermovement : MonoBehaviour
 
             lineRenderer.SetPosition(i, new Vector3(x, y, center.z));
         }
+    }
+        void LateUpdate()
+    {
+        if (transform.parent == null) return;
+
+        // face the pivot
+        Vector2 toPivot = transform.parent.position - transform.position;
+        if (toPivot.sqrMagnitude > 0.0001f)
+        {
+            float angle = Mathf.Atan2(toPivot.y, toPivot.x) * Mathf.Rad2Deg - 90f;
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        }
+
+        DrawCircle();
     }
 }

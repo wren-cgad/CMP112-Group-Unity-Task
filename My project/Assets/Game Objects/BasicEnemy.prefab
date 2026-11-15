@@ -106,7 +106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70de0b8292e50a3499ee9be559986430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  rb: {fileID: 0}
+  trigger: {fileID: 7551622270387747762}
+  spriteRenderer: {fileID: 4168591186056562723}
+  flickerDuration: 0.2
+  flickerInterval: 0.05
 --- !u!61 &7551622270387747762
 BoxCollider2D:
   m_ObjectHideFlags: 0
