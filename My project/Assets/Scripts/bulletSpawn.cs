@@ -6,7 +6,7 @@ public class bulletSpawn : MonoBehaviour
     public GameObject player;
     public Transform firePoint;
     private float bulletSpeed = 25f;
-    private float fireRate = 2f;   // bullets per second
+    [SerializeField] private float fireRate = 2f;   // bullets per second
     private float nextFireTime = 0f;
 
     void Update()

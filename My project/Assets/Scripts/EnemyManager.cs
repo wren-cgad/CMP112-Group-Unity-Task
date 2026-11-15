@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemyPrefabs;
-    private float waitTime = 2f;
+    [SerializeField] private float waitTime = 2f;
     void Start()
     {
         // Start the loop once when the game begins
@@ -24,9 +24,8 @@ public class EnemyManager : MonoBehaviour
     {
         if (enemyPrefabs != null && enemyPrefabs.Length > 0)
         {
-            Instantiate(enemyPrefabs[0]);
-        }
+            int randomIndex = Random.Range(0, enemyPrefabs.Length);
+            Instantiate(enemyPrefabs[randomIndex]);
+        } 
     }
-
-
 }
