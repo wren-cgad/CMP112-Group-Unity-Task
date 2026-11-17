@@ -25,7 +25,7 @@ public class EnemyManager : MonoBehaviour
         if (enemyPrefabs != null && enemyPrefabs.Length > 0)
         {
             int randomIndex = Random.Range(0, enemyPrefabs.Length);
-            Instantiate(enemyPrefabs[randomIndex]);
+            Instantiate(enemyPrefabs[randomIndex]); 
         } 
     }
 }

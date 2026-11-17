@@ -7,20 +7,18 @@ public class playermovement : MonoBehaviour
     public const float SPEED = 5f;
 
     [Header("Circle Settings")]
-    public int segments = 12;
-    private LineRenderer lineRenderer; // allows you to set line resolution in editor
+    public int segments = 12; // allows you to set line resolution in editor
+    public float lineThickness = 0.05f;
+    public Color lineColor = Color.red;
+    private LineRenderer lineRenderer; 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
         lineRenderer = GetComponent<LineRenderer>();
-
-        lineRenderer.useWorldSpace = true;
-        lineRenderer.loop = true;
-        lineRenderer.positionCount = segments;
-        lineRenderer.startWidth = 0.05f;
-        lineRenderer.endWidth = 0.05f;
+        // set up line state
+        SetupLine(); 
     }
 
     void FixedUpdate()
@@ -49,6 +47,17 @@ public class playermovement : MonoBehaviour
             }
                 print(Vector2.Distance(transform.localPosition, transform.parent.localPosition));
         }
+    }
+
+    void SetupLine() {
+        lineRenderer.useWorldSpace = true;
+        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+        lineRenderer.loop = true;
+        lineRenderer.positionCount = segments;
+        lineRenderer.startColor = lineColor;
+        lineRenderer.endColor = lineColor;
+        lineRenderer.startWidth = lineThickness;
+        lineRenderer.endWidth = lineThickness;
     }
 
     void DrawCircle()

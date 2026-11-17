@@ -786,6 +786,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4273284709790877826, guid: 2f63be8aca144ef4c91b4898a575dee5, type: 3}
+      propertyPath: lineThickness
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 6738734306317162925, guid: 2f63be8aca144ef4c91b4898a575dee5, type: 3}
       propertyPath: m_Mass
       value: 1
@@ -835,6 +839,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   rb: {fileID: 0}
   segments: 24
+  lineThickness: 0.05
+  lineColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!120 &1595192141
 LineRenderer:
   serializedVersion: 3

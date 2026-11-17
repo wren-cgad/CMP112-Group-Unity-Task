@@ -4,6 +4,7 @@ public class bulletSpawn : MonoBehaviour
 {
     public GameObject bullet;      // assign the PREFAB in the Inspector
     public GameObject player;
+    public AudioSource shotSound;
     public Transform firePoint;
     private float bulletSpeed = 25f;
     [SerializeField] private float fireRate = 2f;   // bullets per second
@@ -16,6 +17,8 @@ public class bulletSpawn : MonoBehaviour
         {
             nextFireTime = Time.time + 1f / fireRate;
             GameObject newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
+            shotSound.pitch = Random.Range(0.5f,1.5f); // slight variation to prevent monotony
+            shotSound.PlayOneShot(shotSound.clip);
             Rigidbody2D rb = newBullet.GetComponent<Rigidbody2D>();
             rb.AddForce(dirToParent * bulletSpeed, ForceMode2D.Impulse);
         }
