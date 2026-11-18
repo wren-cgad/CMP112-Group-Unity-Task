@@ -15,7 +15,7 @@ public class EnemyManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.5f);
             SpawnEnemy();
         }
     }
@@ -27,6 +27,5 @@ public class EnemyManager : MonoBehaviour
             Instantiate(enemyPrefabs[0]);
         }
     }
-
 
 }
