@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Boidish : MonoBehaviour
 {
-    // adapted "seeker" state from boid algorithm to unity c#
+    // adapted "seeker" state from this paper to unity c#
     // source: https://www.red3d.com/cwr/papers/1999/gdc99steer.pdf
     [SerializeField] private Transform player;
     [SerializeField] private float maxSpeed = 10f;

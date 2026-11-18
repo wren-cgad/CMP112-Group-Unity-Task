@@ -24,9 +24,6 @@ public class HealthManager : MonoBehaviour
                 targetFill,
                 smoothSpeed * Time.deltaTime);
         }
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            Heal(10);
-        }
     }
 
     public void TakeDamage(int damageNumber)

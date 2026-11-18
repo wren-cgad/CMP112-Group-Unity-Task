@@ -11,7 +11,8 @@ public class playermovement : MonoBehaviour
     public float lineThickness = 0.05f;
     public Color lineColor = Color.red;
     private LineRenderer lineRenderer; 
-
+    private float maxDistance = 8f;
+    private float minDistance = 1.5f;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,17 +27,19 @@ public class playermovement : MonoBehaviour
         if (transform.parent == null) return;
 
         Vector2 dirToParent = transform.parent.TransformDirection(-(Vector2)transform.localPosition).normalized;
-
+        float currentDistance = Vector2.Distance(transform.localPosition, transform.parent.localPosition);
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
                 // move towards parent
-                
+            if (currentDistance > minDistance)
+            {
                 rb.linearVelocity = dirToParent * SPEED;
+            }
         }
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             
-            if (Vector2.Distance(transform.localPosition, transform.parent.localPosition) < 8)
+            if (currentDistance < maxDistance)
             {
                 // move away from parent
 
