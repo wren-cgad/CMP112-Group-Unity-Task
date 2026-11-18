@@ -34,8 +34,8 @@ public class HealthManager : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            // handle death here
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+             FindAnyObjectByType<RetryScreen>().setRetry();
+            Destroy(gameObject);
         }
     }
 

@@ -6,6 +6,7 @@ public class BasicEnemy : MonoBehaviour
     [Header("Health")]
     [SerializeField] private int enemyDamage = 10;
     [SerializeField] private int enemyHealth = 3;
+    [SerializeField] private int enemyScore = 5;
     public BoxCollider2D trigger;
     public AudioSource deathSound;
 
@@ -35,7 +36,6 @@ public class BasicEnemy : MonoBehaviour
         {
             TakeDamage(bullet.damage);
             Destroy(collision.gameObject);
-            scoreManager.instance.AddScore();
         }
     }
 
@@ -57,6 +57,9 @@ public class BasicEnemy : MonoBehaviour
         }
         if (enemyHealth <= 0) {
             isDead = true;
+            GameObject scoreDisplay = GameObject.FindGameObjectWithTag("Score");
+            scoreDisplay.TryGetComponent<scoreManager>(out var score);
+            score.AddScore(enemyScore);
             yield return new WaitForSeconds(deathSound.clip.length);  
             Destroy(gameObject);
         }

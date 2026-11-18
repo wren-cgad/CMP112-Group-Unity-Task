@@ -8,25 +8,14 @@ public class scoreManager : MonoBehaviour
     public int score = 0;
     public static scoreManager instance; 
 
-    private void Awake()
-    {
-        instance = this;
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        display.text = "" + score;
+        display.text = "Score: " + score;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddScore(int scoreAmount)
     {
-        
-    }
-
-    public void AddScore()
-    {
-        score += 1;
-        display.text = "" + score;
+        score += scoreAmount;
+        display.text = "Score: " + score;
     }
 }
