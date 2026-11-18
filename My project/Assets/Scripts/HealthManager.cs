@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class HealthManager : MonoBehaviour
         if (currentHealth <= 0)
         {
             // handle death here
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 

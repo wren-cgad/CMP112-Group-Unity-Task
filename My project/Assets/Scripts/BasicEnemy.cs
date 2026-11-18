@@ -35,6 +35,7 @@ public class BasicEnemy : MonoBehaviour
         {
             TakeDamage(bullet.damage);
             Destroy(collision.gameObject);
+            scoreManager.instance.AddScore();
         }
     }
 
