@@ -25,7 +25,7 @@ public class playermovement : MonoBehaviour
     void FixedUpdate()
     {
         if (transform.parent == null) return;
-
+        
         Vector2 dirToParent = transform.parent.TransformDirection(-(Vector2)transform.localPosition).normalized;
         float currentDistance = Vector2.Distance(transform.localPosition, transform.parent.localPosition);
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
