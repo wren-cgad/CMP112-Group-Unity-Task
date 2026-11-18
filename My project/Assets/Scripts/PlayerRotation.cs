@@ -12,6 +12,7 @@ public class PlayerRotation : MonoBehaviour
         // adjust target angle based on input
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
+            // make sure it's frame independent
             targetAngle -= SPEED * Time.fixedDeltaTime;
         }
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))

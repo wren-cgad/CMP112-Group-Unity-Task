@@ -17,6 +17,8 @@ public class HealthManager : MonoBehaviour
 
     private void Update()
     {
+        // if healthBarFill is close enough, within a tiny margin, to target fill, don't lerp
+        // (as lerping never quite reaches the value)
         if (!Mathf.Approximately(healthBarFill.fillAmount, targetFill))
         {
             healthBarFill.fillAmount = Mathf.Lerp(
@@ -39,9 +41,11 @@ public class HealthManager : MonoBehaviour
 
     public void Heal(int healthNumber)
     {   
+        // make sure health is always under or equal to max
         if (currentHealth + healthNumber < maxHealth){
             currentHealth += healthNumber;
         } else {
+            // if health would go over, set it to max instead
             ResetHealth();
         }
             
@@ -57,6 +61,7 @@ public class HealthManager : MonoBehaviour
 
     private void UpdateTarget()
     {
+        // updates the target fill for the lerp
         targetFill = (float)currentHealth / maxHealth;
     }
 }

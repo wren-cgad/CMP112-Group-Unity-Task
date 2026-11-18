@@ -42,20 +42,23 @@ public class BasicEnemy : MonoBehaviour
     {
         if (isDead) return;
         enemyHealth -= damageAmount;
-        // restart the flicker if we get hit again mid-flicker
+        
         StartCoroutine(DamageNoise());
+        
         if (flickerRoutine != null)
-            StopCoroutine(flickerRoutine);
+            StopCoroutine(flickerRoutine); // restart the flicker if we get hit again mid-flicker
         flickerRoutine = StartCoroutine(Flicker());
     }
 
     private IEnumerator DamageNoise()
     {
         if (!isDead){
+            // make sure it only plays while alive
             deathSound.PlayOneShot(deathSound.clip);  
         }
         if (enemyHealth <= 0) {
             isDead = true;
+            // make sure it doesn't clip when dying
             yield return new WaitForSeconds(deathSound.clip.length);  
             Destroy(gameObject);
         }

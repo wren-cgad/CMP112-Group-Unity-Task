@@ -14,6 +14,7 @@ public class Boidish : MonoBehaviour
     {
         if (player == null)
         {
+            //  find player automatically so it can be set on runtime instantiated instances
             GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
             if (playerObject != null) player = playerObject.transform;
         }
